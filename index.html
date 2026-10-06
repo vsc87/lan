@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViralScreen - Featured Video</title>
+  <meta name="description" content="Watch featured entertainment content on ViralScreen.">
+  <script>(function(s){s.dataset.zone='11960578',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .brand h1 {
+      font-size: 28px;
+      color: #f5c542;
+      margin-bottom: 5px;
+    }
+
+    .brand p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          rgba(0,0,0,.25),
+          rgba(0,0,0,.65)
+        ),
+        url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbu4_fNr8QigQbaE9FgGtIcn8bFV-xbmK09U8ADiWDVoZSpxEmgfVD4WoxHuVqoOH0tTABMGxQd6LM6gDsFzt9E-eC3w62YGR-SuCJeAxHuGiF1_CR95aGUolVSgVW01Xzsiglcmqvs32AoFY6goHDGgDdDtl1gkEIF_F4VSm0W-egkdSAR2acgdbYuNhd/s959/840070688_990603497390435_7294786545082389006_n.jpg")
+        center / cover no-repeat;
+
+      border-radius: 12px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.55);
+    }
+
+    .video-info {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .badge {
+      background: rgba(0,0,0,.7);
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .duration {
+      background: rgba(0,0,0,.75);
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .center-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .play-button {
+      width: 78px;
+      height: 78px;
+      border: 0;
+      border-radius: 50%;
+      background: #f5c542;
+      color: #111;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      padding-left: 5px;
+      box-shadow: 0 5px 25px rgba(0,0,0,.5);
+      transition: .2s ease;
+    }
+
+    .play-button:hover {
+      transform: scale(1.08);
+    }
+
+    .video-title {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #000;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      z-index: 10;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .overlay-content {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .overlay-content h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .overlay-content p {
+      color: #bbb;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 13px 25px;
+      background: #f5c542;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 7px;
+      cursor: pointer;
+      border: 0;
+      font-size: 15px;
+    }
+
+    .close-button {
+      display: block;
+      margin: 15px auto 0;
+      background: transparent;
+      color: #aaa;
+      border: 0;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .description {
+      margin-top: 20px;
+      background: #151515;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .description h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .description p {
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        margin: 15px auto;
+        padding: 10px;
+      }
+
+      .brand h1 {
+        font-size: 23px;
+      }
+
+      .play-button {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+      }
+
+      .video-title {
+        font-size: 15px;
+      }
+
+      .overlay-content h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="brand">
+      <h1>ViralScreen</h1>
+      <p>Trending Entertainment</p>
+    </div>
+
+    <div class="video-box">
+
+      <div class="video-info">
+        <span class="badge">FEATURED</span>
+        <span class="duration">03:24</span>
+      </div>
+
+      <div class="center-content">
+
+        <button
+          class="play-button"
+          type="button"
+          aria-label="Play"
+          onclick="openPlayer()">
+          ▶
+        </button>
+
+        <div class="video-title">
+          Featured Entertainment Video
+        </div>
+
+      </div>
+      <div class="overlay" id="videoOverlay">
+
+        <div class="overlay-content">
+
+          <h2>Continue Watching</h2>
+
+          <p>
+            This is a preview player. Continue to the next page
+            to explore more content.
+          </p>
+          <a
+            class="cta-button"
+            href="/"
+            target="_blank"
+            rel="noopener">
+            CONTINUE
+          </a>
+
+          <button
+            class="close-button"
+            type="button"
+            onclick="closePlayer()">
+            ✕ Close
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="description">
+
+      <h2>Featured Video</h2>
+
+      <p>
+        Explore trending entertainment, viral clips and
+        interesting content on ViralScreen.
+      </p>
+
+    </div>
+
+  </div>
+
+  <script>
+    function openPlayer() {
+      document
+        .getElementById("videoOverlay")
+        .classList.add("active");
+    }
+
+    function closePlayer() {
+      document
+        .getElementById("videoOverlay")
+        .classList.remove("active");
+    }
+  </script>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5026796,4,9,110,60,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5026796&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+</body>
+</html>
